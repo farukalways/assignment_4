@@ -49,21 +49,23 @@ function checkDigitsInName(name) {
 //=========== problem 04 ===========
 
 function calculateFinalScore(score){ 
-  if(typeof score !== 'object'){
-    return 'Invalid Input';
-  }
+ let result = false;
+ let parentProfScore = 0
+ if (score.isFFamily == true){
+  parentProfScore = 20
+ }
+ let totalscore = score.testScore + score.schoolGrade + parentProfScore;
 
-  let testScore = Math.min(score.testScore <= 50) 
-  let schoolGrade = Math.min(score.schoolGrade <= 30) 
+ if(typeof score !== 'object'){
+   result = 'Invalid Input';
 
-  if (score.isFFamily === true){
-    ParentProfession = 20;
-  }
-  let totalScore = testScore + schoolGrade + score.ParentProfession
-  return totalScore >= 80
+}else if (totalscore >= 80){
+  result = true
+}
+ return result
 }
 
-//  const calculate = calculateFinalScore({ name: "Rajib", testScore: 15,  schoolGrade: 25, isFFamily : true  })
+//  const calculate = calculateFinalScore("hello" )
 //  console.log(calculate)
 
 //=========== problem 05 ===========
@@ -86,7 +88,7 @@ function  waitingTime(times, serialNumber) {
     let myWaitingTime = bakiAseKoyjon * result
     return myWaitingTime
 }
-// const vvv = waitingTime(times, serialNumber) 
+// const vvvv = waitingTime(times, serialNumber) 
 // console.log(vvv);
 
 
